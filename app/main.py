@@ -36,13 +36,10 @@ class CarWashStation:
                 income += self.calculate_income_for_car(car)
                 self.wash_single_car(car)
 
-        return income
+        return round(income, 1)
 
     def calculate_washing_price(self, car: Car) -> float | str:
-        if car.clean_mark < self.clean_power:
-            return self.calculate_income_for_car(car)
-
-        return "This car cannot be washed at this station."
+        return self.calculate_income_for_car(car)
 
     def wash_single_car(self, car: Car) -> None:
         if car.clean_mark < self.clean_power:
